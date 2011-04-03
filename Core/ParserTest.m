@@ -61,29 +61,72 @@
     [delegate release];
 }
 
+- (void)logShouldBeEmpty
+{
+    STAssertEquals(delegate.log.count, (NSUInteger)0, @"");
+}
+
+- (void)logShouldBeEqualToStrings:(NSString *)first, ...
+{
+    NSMutableArray *args = [NSMutableArray arrayWithObject:first];
+
+    va_list va;
+    va_start(va, first);
+    for (;;) {
+        NSString *arg = va_arg(va, NSString *);
+        if (!arg) {
+            break;
+        }
+        [args addObject:arg];
+    }    
+    va_end(va);
+    
+    STAssertEquals(delegate.log.count, args.count, @"");
+    for (NSUInteger i = 0; i < delegate.log.count && i < args.count; ++i) {
+        STAssertEqualObjects([delegate.log objectAtIndex:i], [args objectAtIndex:i], @"");
+    }
+}
+
 - (void)testParseEmptyFile {
     [parser parseLines:@""];
 
-    STAssertEquals((int)delegate.log.count, 0, @"");
+    [self logShouldBeEmpty];
 }
 
 - (void)testParseOneTransaction {
     [parser parseLines:@"4-03 milk\n food  10\n assets"];
 
-    STAssertEquals((int)delegate.log.count, 3, @"");
-    STAssertEqualObjects([delegate.log objectAtIndex:0], @"transaction <4-03> <milk>", @"transaction header");
-    STAssertEqualObjects([delegate.log objectAtIndex:1], @"posting <food> <10>", @"first posting");
-    STAssertEqualObjects([delegate.log objectAtIndex:2], @"posting <assets> <(null)>", @"second posting");
+    [self logShouldBeEqualToStrings:@"transaction <4-03> <milk>",
+                                    @"posting <food> <10>",
+                                    @"posting <assets> <(null)>",
+                                    nil];
 }
 
 - (void)testParseOneTransactionWithExtraSpaces {
     [parser parseLines:@"4-03 \t milk \n \t food\t10\n \t\tassets  "];
-
-    STAssertEquals((int)delegate.log.count, 3, @"");
-    STAssertEqualObjects([delegate.log objectAtIndex:0], @"transaction <4-03> <milk>", @"transaction header");
-    STAssertEqualObjects([delegate.log objectAtIndex:1], @"posting <food> <10>", @"first posting");
-    STAssertEqualObjects([delegate.log objectAtIndex:2], @"posting <assets> <(null)>", @"second posting");
+    
+    [self logShouldBeEqualToStrings:@"transaction <4-03> <milk>",
+                                    @"posting <food> <10>",
+                                    @"posting <assets> <(null)>",
+                                    nil];
 }
 
+- (void)testParseOneTransactionWithComments {
+    [parser parseLines:@"4-03 milk ; awful milk\n food  10  ; bad milk :(\n assets ; no money left"];
+    
+    [self logShouldBeEqualToStrings:@"transaction <4-03> <milk>",
+                                    @"posting <food> <10>",
+                                    @"posting <assets> <(null)>",
+                                    nil];
+}
+
+- (void)testParseOneTransactionWithSpacedAccount {
+    [parser parseLines:@"4-03 milk\n food and drink  10\n assets"];
+    
+    [self logShouldBeEqualToStrings:@"transaction <4-03> <milk>",
+                                    @"posting <food and drink> <10>",
+                                    @"posting <assets> <(null)>",
+                                    nil];
+}
  
 @end

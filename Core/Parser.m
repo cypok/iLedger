@@ -8,6 +8,30 @@
 
 #import "Parser.h"
 
+@interface NSString (MyParserStringExtension)
+@end
+
+@implementation NSString (MyParserStringExtension)
+
+- (NSString *)stringByTrimmingSpaces
+{
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
+- (NSString *)stringWithoutComment
+{
+    NSUInteger location = [self rangeOfString:@";"].location;
+    if (location != NSNotFound) {
+        return [self substringToIndex:location];
+    } else {
+        return self;
+    }
+}
+
+@end
+
+
+
 @implementation Parser
 
 @synthesize delegate;
@@ -20,11 +44,6 @@
     return self;
 }
 
-+ (NSString *)trimString:(NSString *)string
-{
-    return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-}
-
 - (void)parseLines:(NSString *)lines
 {
     NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
@@ -33,13 +52,15 @@
         unichar ch = [line characterAtIndex:0];
 
         if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:ch]) {
+            line = [[line stringWithoutComment] stringByTrimmingSpaces];
+            
             NSUInteger location = [line rangeOfCharacterFromSet:whitespaces].location;
             NSString *date = [line   substringToIndex:location];
             NSString *desc = [line substringFromIndex:location];
-            [delegate addTransactionOfDate:[Parser trimString:date]
-                           withDescription:[Parser trimString:desc]];
+            [delegate addTransactionOfDate:[date stringByTrimmingSpaces]
+                           withDescription:[desc stringByTrimmingSpaces]];
         } else if ([[NSCharacterSet whitespaceCharacterSet] characterIsMember:ch]) {
-            line = [Parser trimString:line];
+            line = [[line stringWithoutComment] stringByTrimmingSpaces];
 
             NSUInteger location;
             for (NSString *separator in [NSArray arrayWithObjects:@"  ", @"\t", nil]) {
@@ -51,8 +72,8 @@
 
             NSString *account = (location != NSNotFound) ? [line   substringToIndex:location] : line;
             NSString *amount  = (location != NSNotFound) ? [line substringFromIndex:location] : nil;
-            [delegate addPostingForAccount:[Parser trimString:account]
-                                withAmount:[Parser trimString:amount]];
+            [delegate addPostingForAccount:[account stringByTrimmingSpaces]
+                                withAmount:[amount  stringByTrimmingSpaces]];
         }
     }];
 }
