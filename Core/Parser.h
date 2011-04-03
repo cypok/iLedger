@@ -10,11 +10,10 @@
 
 @protocol ParserDelegate
 
-- (void) addTransactionOfDate:(NSString *)date withDescription:(NSString *)description;
-- (void) addPostingForAccount:(NSString *)account withAmount:(NSString *)amount;
+- (void)addTransactionOfDate:(NSString *)date withDescription:(NSString *)description;
+- (void)addPostingForAccount:(NSString *)account withAmount:(NSString *)amount;
 
 @end
-
 
 @interface Parser : NSObject {
     id <ParserDelegate> delegate;
@@ -22,6 +21,6 @@
 
 @property (assign) id <ParserDelegate> delegate;
 
-- (void) parseLines:(NSString *)lines;
+- (void)parseLines:(NSString *)lines;
 
 @end
