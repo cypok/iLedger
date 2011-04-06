@@ -12,6 +12,13 @@
 		9A4DEABA134875B100EE2801 /* libCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libCore.a */; };
 		9A4DEABB134875BC00EE2801 /* Xcode324iOS41TestSuiteWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DE924134795D600EE2801 /* Xcode324iOS41TestSuiteWorkaround.m */; };
 		9A4DEABC134875BC00EE2801 /* ParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DE91F1347940600EE2801 /* ParserTest.m */; };
+		9A649099134B22520061A36F /* AccountsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A649097134B22520061A36F /* AccountsManager.h */; };
+		9A64909A134B22520061A36F /* AccountsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A649098134B22520061A36F /* AccountsManager.m */; };
+		9A64909B134B22520061A36F /* AccountsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A649098134B22520061A36F /* AccountsManager.m */; };
+		9A64909E134B230E0061A36F /* TransactionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A64909C134B230E0061A36F /* TransactionManager.h */; };
+		9A64909F134B230E0061A36F /* TransactionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64909D134B230E0061A36F /* TransactionManager.m */; };
+		9A6490A0134B230E0061A36F /* TransactionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64909D134B230E0061A36F /* TransactionManager.m */; };
+		9A6490D2134CCA640061A36F /* AccountsManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6490D1134CCA640061A36F /* AccountsManagerTest.m */; };
 		AA747D9F0F9514B9006C5449 /* Core_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Core_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +43,12 @@
 		9A4DE924134795D600EE2801 /* Xcode324iOS41TestSuiteWorkaround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Xcode324iOS41TestSuiteWorkaround.m; sourceTree = "<group>"; };
 		9A4DEA911348724D00EE2801 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		9A4DEAB7134875AC00EE2801 /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A649097134B22520061A36F /* AccountsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsManager.h; sourceTree = "<group>"; };
+		9A649098134B22520061A36F /* AccountsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsManager.m; sourceTree = "<group>"; };
+		9A64909C134B230E0061A36F /* TransactionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionManager.h; sourceTree = "<group>"; };
+		9A64909D134B230E0061A36F /* TransactionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionManager.m; sourceTree = "<group>"; };
+		9A6490D0134CCA640061A36F /* AccountsManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsManagerTest.h; sourceTree = "<group>"; };
+		9A6490D1134CCA640061A36F /* AccountsManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsManagerTest.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* Core_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +112,10 @@
 			children = (
 				9A4DE87D134775A400EE2801 /* Parser.h */,
 				9A4DE87E134775A400EE2801 /* Parser.m */,
+				9A649097134B22520061A36F /* AccountsManager.h */,
+				9A649098134B22520061A36F /* AccountsManager.m */,
+				9A64909C134B230E0061A36F /* TransactionManager.h */,
+				9A64909D134B230E0061A36F /* TransactionManager.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -116,6 +133,8 @@
 			children = (
 				9A4DE91E1347940600EE2801 /* ParserTest.h */,
 				9A4DE91F1347940600EE2801 /* ParserTest.m */,
+				9A6490D0134CCA640061A36F /* AccountsManagerTest.h */,
+				9A6490D1134CCA640061A36F /* AccountsManagerTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -129,6 +148,8 @@
 			files = (
 				AA747D9F0F9514B9006C5449 /* Core_Prefix.pch in Headers */,
 				9A4DE87F134775A400EE2801 /* Parser.h in Headers */,
+				9A649099134B22520061A36F /* AccountsManager.h in Headers */,
+				9A64909E134B230E0061A36F /* TransactionManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +251,9 @@
 			files = (
 				9A4DEABB134875BC00EE2801 /* Xcode324iOS41TestSuiteWorkaround.m in Sources */,
 				9A4DEABC134875BC00EE2801 /* ParserTest.m in Sources */,
+				9A64909B134B22520061A36F /* AccountsManager.m in Sources */,
+				9A6490A0134B230E0061A36F /* TransactionManager.m in Sources */,
+				9A6490D2134CCA640061A36F /* AccountsManagerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A4DE880134775A400EE2801 /* Parser.m in Sources */,
+				9A64909A134B22520061A36F /* AccountsManager.m in Sources */,
+				9A64909F134B230E0061A36F /* TransactionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

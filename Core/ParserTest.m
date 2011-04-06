@@ -21,14 +21,14 @@
 - (id)init
 {
     if (self = [super init]) {
-        log = [[NSMutableArray alloc] init];
+        self.log = [NSMutableArray array];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [log release];
+    self.log = nil;
     [super dealloc];
 }
 
