@@ -23,7 +23,7 @@
 - (void)testCreatingRootAccount
 {
     Account *account = [accountsManager accountByName:@"expenses"];
-    STAssertEqualObjects(account.name, @"expenses", @"");
+    STAssertEqualObjects(account.fullName, @"expenses", @"");
     STAssertEqualObjects(account.parent, nil, @"");
 }
 
@@ -38,7 +38,7 @@
 {
     Account *account =    [accountsManager accountByName:@"expenses"];
     Account *subAccount = [accountsManager accountByName:@"expenses:food"];
-    STAssertEqualObjects(subAccount.name, @"food", @"");
+    STAssertEqualObjects(subAccount.fullName, @"expenses:food", @"");
     STAssertEqualObjects(subAccount.parent, account, @"");
 }
 

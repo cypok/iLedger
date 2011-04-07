@@ -8,14 +8,18 @@
 
 #import "AccountsManager.h"
 
+
 NSString * const ACCOUNTS_SEPARATOR = @":";
+
 
 @interface Account()
 @property (readonly) NSMutableDictionary *children;
+@property (readonly) NSString *name;
 
 - (id)initWithName:(NSString *)aName parentAccount:(Account *)aParent;
 
 @end
+
 
 @implementation Account
 
@@ -38,9 +42,9 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
 
 - (void)dealloc
 {
-    [name release];
-    [parent release];
     [children release];
+    [parent release];
+    [name release];
     [super dealloc];
 }
 
@@ -57,6 +61,7 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
 }
 
 @end
+
 
 @implementation AccountsManager
 

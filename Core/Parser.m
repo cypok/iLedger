@@ -8,8 +8,14 @@
 
 #import "Parser.h"
 
+
 @interface NSString (MyParserStringExtension)
+
+- (NSString *)stringByTrimmingSpaces;
+- (NSString *)stringWithoutComment;
+
 @end
+
 
 @implementation NSString (MyParserStringExtension)
 
@@ -31,7 +37,6 @@
 @end
 
 
-
 @implementation Parser
 
 @synthesize delegate;
@@ -42,6 +47,12 @@
         self.delegate = nil;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    self.delegate = nil;
+    [super dealloc];
 }
 
 - (void)parseLines:(NSString *)lines

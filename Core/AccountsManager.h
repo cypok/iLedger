@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+
 extern NSString * const ACCOUNTS_SEPARATOR;
+
 
 @interface Account : NSObject
 {
@@ -17,7 +19,6 @@ extern NSString * const ACCOUNTS_SEPARATOR;
     NSString *name;
 }
 @property (readonly) Account *parent;
-@property (readonly) NSString *name;
 @property (readonly) NSString *fullName;
 
 @end
