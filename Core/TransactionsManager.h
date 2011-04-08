@@ -11,6 +11,14 @@
 #import "AccountsManager.h"
 
 
+@interface NSDate (MyNSDateWithComponentsExtension)
+@property (readonly) NSInteger year, month, day;
+
+- (NSDate *)dateWithYear:(NSInteger)aYear month:(NSInteger)aMonth day:(NSInteger)aDay;
+
+@end
+
+
 @interface Posting : NSObject
 {
     Account *account;
@@ -18,8 +26,6 @@
 }
 @property (readonly) Account *account;
 @property (readonly) NSString *amount;
-
-+ (id)postingWithAccount:(Account *)anAccount amount:(NSString *)anAmount;
 
 - (id)initWithAccount:(Account *)anAccount amount:(NSString *)anAmount;
 
@@ -38,7 +44,7 @@
 
 - (id)initWithDate:(NSDate *)aDate description:(NSString *)aDescription;
 
-- (void)addPosting:(Posting *)posting;
+- (void)addPostingWithAccount:(Account *)anAccount amount:(NSString *)anAmount;
 - (Posting *)postingByIndex:(NSUInteger)index;
 
 @end
@@ -46,7 +52,10 @@
 
 @interface TransactionsManager : NSObject <ParserDelegate>
 {
-    NSMutableArray *transactions;    
+    AccountsManager *accountsManager;
+    NSMutableArray *transactions;
+    NSInteger transactionYear;
+    NSArray *fullDateFormatters, *shortDateFormatters;
 }
 @property (readonly) NSArray *transactions;
 
