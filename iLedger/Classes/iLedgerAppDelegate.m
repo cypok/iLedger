@@ -7,19 +7,22 @@
 //
 
 #import "iLedgerAppDelegate.h"
+#import "TransactionsViewController.h"
 
 
 @implementation iLedgerAppDelegate
 
-@synthesize window;
+@synthesize window, controller;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    TransactionsViewController *transactionsVC = [[[TransactionsViewController alloc] init] autorelease];
     
-    // Override point for customization after application launch.
+    self.controller = transactionsVC;
+    [window addSubview:transactionsVC.view];
     
     [window makeKeyAndVisible];
     
@@ -81,6 +84,7 @@
 - (void)dealloc
 {
     [window release];
+    self.controller = nil;
     [super dealloc];
 }
 

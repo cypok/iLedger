@@ -103,10 +103,10 @@
 
 @synthesize transactions;
 
-- (id)init
+- (id)initWithAccountsManager:(AccountsManager *)anAccountsManager
 {
     if (self = [super init]) {
-        accountsManager = [[AccountsManager alloc] init];
+        accountsManager = [anAccountsManager retain];
         transactions = [[NSMutableArray alloc] init];
         
         transactionYear = [[NSDate date] year];

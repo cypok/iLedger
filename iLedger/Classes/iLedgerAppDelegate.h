@@ -12,9 +12,11 @@
 @interface iLedgerAppDelegate : NSObject <UIApplicationDelegate>
 {
     UIWindow *window;
+    UIViewController *controller;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) UIViewController *controller;
 
 @end
 

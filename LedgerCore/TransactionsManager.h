@@ -59,5 +59,7 @@
 }
 @property (readonly) NSArray *transactions;
 
+- (id)initWithAccountsManager:(AccountsManager *)anAccountsManager;
+
 @end
 

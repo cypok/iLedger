@@ -14,7 +14,7 @@
 - (void)setUp
 {
     accountsManager = [[AccountsManager alloc] init];
-    transactionsManager = [[TransactionsManager alloc] init];
+    transactionsManager = [[TransactionsManager alloc] initWithAccountsManager:accountsManager];
 }
 
 - (void)tearDown
