@@ -1,6 +1,6 @@
 //
 //  AccountsManager.m
-//  Core
+//  LedgerCore
 //
 //  Created by Vladimir Parfinenko on 05.04.11.
 //  Copyright 2011 . All rights reserved.
@@ -52,7 +52,7 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
 {
     NSMutableString *fullName = [NSMutableString string];
     [fullName setString:self.name];
-    
+
     for (Account *acc = self.parent; acc != nil; acc = acc.parent) {
         [fullName insertString:ACCOUNTS_SEPARATOR atIndex:0];
         [fullName insertString:acc.name atIndex:0];
@@ -83,7 +83,7 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
 {
     Account *parent = nil;
     NSMutableDictionary *children = rootAccounts;
-    
+
     for (NSString *childAccountName in [fullAccountName componentsSeparatedByString:ACCOUNTS_SEPARATOR]) {
         Account *child = [children objectForKey:childAccountName];
         if (!child) {
@@ -91,11 +91,11 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
             [children setObject:child forKey:childAccountName];
             [child release];
         }
-        
+
         parent = child;
         children = parent.children;
     }
-    
+
     return parent;
 }
 

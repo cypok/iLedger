@@ -1,6 +1,6 @@
 //
 //  AccountsManagerTest.m
-//  Core
+//  LedgerCore
 //
 //  Created by Vladimir Parfinenko on 06.04.11.
 //  Copyright 2011 . All rights reserved.

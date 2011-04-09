@@ -1,6 +1,6 @@
 //
 //  AccountsManager.h
-//  Core
+//  LedgerCore
 //
 //  Created by Vladimir Parfinenko on 05.04.11.
 //  Copyright 2011 . All rights reserved.

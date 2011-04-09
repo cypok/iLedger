@@ -1,6 +1,6 @@
 //
 //  TransactionsManagerTest.m
-//  Core
+//  LedgerCore
 //
 //  Created by Vladimir Parfinenko on 07.04.11.
 //  Copyright 2011 . All rights reserved.

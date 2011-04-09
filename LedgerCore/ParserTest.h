@@ -1,6 +1,6 @@
 //
 //  ParserTest.h
-//  Core
+//  LedgerCore
 //
 //  Created by Vladimir Parfinenko on 03.04.11.
 //  Copyright 2011 . All rights reserved.
