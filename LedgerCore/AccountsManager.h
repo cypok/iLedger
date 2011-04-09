@@ -24,7 +24,8 @@ extern NSString * const ACCOUNTS_SEPARATOR;
 @end
 
 
-@interface AccountsManager : NSObject {
+@interface AccountsManager : NSObject
+{
     NSMutableDictionary *rootAccounts;
 }
 

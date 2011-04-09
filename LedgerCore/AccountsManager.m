@@ -42,8 +42,8 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
 
 - (void)dealloc
 {
-    [children release];
     [parent release];
+    [children release];
     [name release];
     [super dealloc];
 }

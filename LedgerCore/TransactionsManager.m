@@ -56,9 +56,9 @@
 
 - (void)dealloc
 {
-    [postings release];
-    [description release];
     [date release];
+    [description release];
+    [postings release];
     [super dealloc];
 }
 
@@ -92,8 +92,8 @@
 
 - (void)dealloc
 {
-    [amount release];
     [account release];
+    [amount release];
     [super dealloc];
 }
 
@@ -129,10 +129,10 @@
 
 - (void)dealloc
 {
+    [accountsManager release];
+    [transactions release];
     [fullDateFormatters release];
     [shortDateFormatters release];
-    [transactions release];
-    [accountsManager release];
     [super dealloc];
 }
 

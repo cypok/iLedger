@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iLedgerAppDelegate : NSObject <UIApplicationDelegate> {
+
+@interface iLedgerAppDelegate : NSObject <UIApplicationDelegate>
+{
     UIWindow *window;
 }
 

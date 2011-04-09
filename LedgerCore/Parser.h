@@ -17,7 +17,9 @@
 
 @end
 
-@interface Parser : NSObject {
+
+@interface Parser : NSObject
+{
     id <ParserDelegate> delegate;
 }
 
