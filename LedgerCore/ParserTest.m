@@ -74,7 +74,7 @@
 - (void)logShouldBeEqualToStrings:(NSString *)first, ...
 {
     NSMutableArray *args = [NSMutableArray arrayWithObject:first];
-    
+
     va_list va;
     va_start(va, first);
     for (;;) {
@@ -83,24 +83,26 @@
             break;
         }
         [args addObject:arg];
-    }    
+    }
     va_end(va);
-    
+
     for (NSUInteger i = 0; i < delegate.log.count && i < args.count; ++i) {
         STAssertEqualObjects([delegate.log objectAtIndex:i], [args objectAtIndex:i], @"");
     }
     STAssertEquals(delegate.log.count, args.count, @"");
 }
 
-- (void)testParseEmptyFile {
+- (void)testParseEmptyFile
+{
     [parser parseLines:@""];
-    
+
     [self logShouldBeEmpty];
 }
 
-- (void)testParseOneTransaction {
+- (void)testParseOneTransaction
+{
     [parser parseLines:@"4-03 milk\n food  10\n assets"];
-    
+
     [self logShouldBeEqualToStrings:
      @"transaction <4-03> <milk>",
      @"posting <food> <10>",
@@ -108,9 +110,10 @@
      nil];
 }
 
-- (void)testParseOneTransactionWithExtraSpaces {
+- (void)testParseOneTransactionWithExtraSpaces
+{
     [parser parseLines:@"4-03 \t milk \n \t food\t10\n \t\tassets  "];
-    
+
     [self logShouldBeEqualToStrings:
      @"transaction <4-03> <milk>",
      @"posting <food> <10>",
@@ -118,9 +121,10 @@
      nil];
 }
 
-- (void)testParseOneTransactionWithComments {
+- (void)testParseOneTransactionWithComments
+{
     [parser parseLines:@"4-03 milk ; awful milk\n food  10  ; bad milk :(\n assets ; no money left"];
-    
+
     [self logShouldBeEqualToStrings:
      @"transaction <4-03> <milk>",
      @"posting <food> <10>",
@@ -128,9 +132,10 @@
      nil];
 }
 
-- (void)testParseOneTransactionWithSpacedAccount {
+- (void)testParseOneTransactionWithSpacedAccount
+{
     [parser parseLines:@"4-03 milk\n food and drink  10\n assets"];
-    
+
     [self logShouldBeEqualToStrings:
      @"transaction <4-03> <milk>",
      @"posting <food and drink> <10>",
@@ -138,9 +143,10 @@
      nil];
 }
 
-- (void)testParseTwoTransactions {
+- (void)testParseTwoTransactions
+{
     [parser parseLines:@"4-03 milk\n food  10\n assets\n\n4-04 mobile\n expenses  100\n assets"];
-    
+
     [self logShouldBeEqualToStrings:
      @"transaction <4-03> <milk>",
      @"posting <food> <10>",
@@ -151,33 +157,39 @@
      nil];
 }
 
-- (void)testParsePostingNotInTransaction {
+- (void)testParsePostingNotInTransaction
+{
     STAssertThrows([parser parseLines:@" food  10"], @"");
 }
 
-- (void)testParseTransactionBrokenByEmptyLine {
+- (void)testParseTransactionBrokenByEmptyLine
+{
     STAssertThrows([parser parseLines:@"4-03 milk\n food  10\n\n assets"], @"");
 }
 
-- (void)testParseTransactionBrokenByComment {
+- (void)testParseTransactionBrokenByComment
+{
     STAssertThrows([parser parseLines:@"4-03 milk\n food  10\n; foo bar\n assets"], @"");
 }
 
-- (void)testParseTransactionBrokenByYear {
+- (void)testParseTransactionBrokenByYear
+{
     STAssertThrows([parser parseLines:@"4-03 milk\n food  10\nY2011\n assets"], @"");
 }
 
-- (void)testParseYear {
+- (void)testParseYear
+{
     [parser parseLines:@"Y2011"];
-    
+
     [self logShouldBeEqualToStrings:
      @"year <2011>",
      nil];
 }
 
-- (void)testParseYearWithComment {
+- (void)testParseYearWithComment
+{
     [parser parseLines:@"Y2010 ; year of iPad ;)"];
-    
+
     [self logShouldBeEqualToStrings:
      @"year <2010>",
      nil];

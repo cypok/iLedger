@@ -10,7 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "AccountsManager.h"
 
-@interface AccountsManagerTest : SenTestCase {
+@interface AccountsManagerTest : SenTestCase
+{
     AccountsManager *accountsManager;
 }
 

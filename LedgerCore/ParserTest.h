@@ -12,7 +12,8 @@
 
 @class ParserTestDelegate;
 
-@interface ParserTest : SenTestCase {
+@interface ParserTest : SenTestCase
+{
     Parser *parser;
     ParserTestDelegate *delegate;
 }

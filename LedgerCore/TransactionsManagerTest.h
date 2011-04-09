@@ -12,7 +12,8 @@
 #import "AccountsManager.h"
 
 
-@interface TransactionsManagerTest : SenTestCase {
+@interface TransactionsManagerTest : SenTestCase
+{
     AccountsManager *accountsManager;
     TransactionsManager *transactionsManager;
 }
