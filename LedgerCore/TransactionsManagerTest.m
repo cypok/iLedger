@@ -25,7 +25,7 @@
 
 - (void)testTransactionInitialization
 {
-    Transaction *transaction = [[Transaction alloc] initWithDate:[NSDate date] description:@"some fruits"];
+    Transaction *transaction = [[[Transaction alloc] initWithDate:[NSDate date] description:@"some fruits"] autorelease];
     [transaction addPostingWithAccount:[accountsManager accountByName:@"expenses"] amount:@"100"];
     [transaction addPostingWithAccount:[accountsManager accountByName:@"assets"] amount:nil];
     
@@ -37,8 +37,6 @@
     
     STAssertEqualObjects([transaction postingByIndex:1].account.fullName, @"assets", @"");
     STAssertEqualObjects([transaction postingByIndex:1].amount, nil, @"");
-    
-    [transaction release];
 }
 
 - (void)testTransactionCreation

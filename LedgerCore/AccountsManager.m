@@ -87,9 +87,8 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
     for (NSString *childAccountName in [fullAccountName componentsSeparatedByString:ACCOUNTS_SEPARATOR]) {
         Account *child = [children objectForKey:childAccountName];
         if (!child) {
-            child = [[Account alloc] initWithName:childAccountName parentAccount:parent];
+            child = [[[Account alloc] initWithName:childAccountName parentAccount:parent] autorelease];
             [children setObject:child forKey:childAccountName];
-            [child release];
         }
 
         parent = child;

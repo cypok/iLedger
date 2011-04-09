@@ -64,9 +64,8 @@
 
 - (void)addPostingWithAccount:(Account *)anAccount amount:(NSString *)anAmount
 {
-    Posting *posting = [[Posting alloc] initWithAccount:anAccount amount:anAmount];
+    Posting *posting = [[[Posting alloc] initWithAccount:anAccount amount:anAmount] autorelease];
     [postings addObject:posting];
-    [posting release];
 }
 
 - (Posting *)postingByIndex:(NSUInteger)index
@@ -112,17 +111,15 @@
         
         transactionYear = [[NSDate date] year];
         
-        NSDateFormatter *fullDateFormatter1 = [[NSDateFormatter alloc] init];
+        NSDateFormatter *fullDateFormatter1 = [[[NSDateFormatter alloc] init] autorelease];
         fullDateFormatter1.dateFormat = @"yyyy-MM-dd";
         // TODO: more full date formatters
         fullDateFormatters = [[NSArray alloc] initWithObjects:fullDateFormatter1, nil];
-        [fullDateFormatter1 release];
         
-        NSDateFormatter *shortDateFormatter1 = [[NSDateFormatter alloc] init];
+        NSDateFormatter *shortDateFormatter1 = [[[NSDateFormatter alloc] init] autorelease];
         shortDateFormatter1.dateFormat = @"MM-dd";
         // TODO: more short date formatters
         shortDateFormatters = [[NSArray alloc] initWithObjects:shortDateFormatter1, nil];
-        [shortDateFormatter1 release];
     }
     return self;
 }
@@ -173,9 +170,8 @@
                     format:@"Could not parse date \"%@\"", date];
     }
     
-    Transaction *transaction = [[Transaction alloc] initWithDate:parsedDate description:description];
+    Transaction *transaction = [[[Transaction alloc] initWithDate:parsedDate description:description] autorelease];
     [transactions addObject:transaction];
-    [transaction release];
 }
 
 - (void)addPostingForAccount:(NSString *)account withAmount:(NSString *)amount
