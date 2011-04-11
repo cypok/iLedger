@@ -1,5 +1,5 @@
 //
-//  TransactionsViewController.h
+//  PlainTextViewController.h
 //  iLedger
 //
 //  Created by Vladimir Parfinenko on 09.04.11.
@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Ledger.h"
 
-
-@interface TransactionsViewController : UIViewController
+@interface PlainTextViewController : UIViewController
 {
     UITextView *textView;
+    Ledger *ledger;
 }
 @property (retain) IBOutlet UITextView *textView;
 
-- (IBAction)parse:(id)sender;
+@property (assign) Ledger *ledger;
 
 @end

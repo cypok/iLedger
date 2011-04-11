@@ -133,8 +133,7 @@
     [super dealloc];
 }
 
-// -------------------------------
-// <ParserDelegate> implementation
+#pragma mark ParserDelegate methods
 
 - (void)setYear:(NSString *)year
 {
@@ -184,7 +183,5 @@
     [transactions.lastObject addPostingWithAccount:parsedAccount amount:amount];
 }
 
-// <ParserDelegate> implementation
-// -------------------------------
 
 @end

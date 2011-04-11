@@ -12,11 +12,19 @@
 
 @interface Ledger : NSObject
 {
+    NSString *lines;
+    BOOL parsed;
+    NSString *parserError;
     AccountsManager *accountsManager;
     TransactionsManager *transactionsManager;
 }
+@property (copy) NSString *lines;
+
+@property (copy,readonly) NSString *parserError;
 @property (readonly) NSArray *transactions;
 
 - (id)initWithLines:(NSString *)ledgerLines;
+
+- (BOOL)parse;
 
 @end

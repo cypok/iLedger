@@ -7,7 +7,8 @@
 //
 
 #import "iLedgerAppDelegate.h"
-#import "TransactionsViewController.h"
+#import "PlainTextViewController.h"
+#import "Ledger.h"
 
 
 @implementation iLedgerAppDelegate
@@ -19,13 +20,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    TransactionsViewController *transactionsVC = [[[TransactionsViewController alloc] init] autorelease];
+    NSURL *file = [[NSBundle mainBundle] URLForResource:@"my.ledger" withExtension:nil];
+    Ledger *ledger = [[Ledger alloc] initWithLines:[NSString stringWithContentsOfURL:file usedEncoding:nil error:nil]];
     
-    self.controller = transactionsVC;
-    [window addSubview:transactionsVC.view];
+    PlainTextViewController *plainTextVC = [[[PlainTextViewController alloc] init] autorelease];
+    plainTextVC.ledger = ledger;
+
+    UITabBarController *tbc = [[[UITabBarController alloc] init] autorelease];
+    tbc.viewControllers = [NSArray arrayWithObject:plainTextVC];
     
+    self.controller = tbc;
+    [window addSubview:self.controller.view];
+
     [window makeKeyAndVisible];
-    
+
     return YES;
 }
 
@@ -41,7 +49,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
 }
