@@ -55,6 +55,12 @@
     [super dealloc];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.textView.editable = NO;
+}
+
 - (void)viewDidUnload
 {
     [self releaseOutlets];
@@ -67,14 +73,13 @@
         return;
     }
     
-    self.textView.text = self.ledger.lines;
-    
-    self.textView.selectedRange = NSMakeRange(self.textView.text.length - 1, 0);
-    self.textView.editable = NO;
+    self.textView.text = self.ledger.lines;    
+    [self.textView scrollRangeToVisible:NSMakeRange(self.textView.text.length-2, 1)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self refreshTextView];
 }
 

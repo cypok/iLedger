@@ -8,6 +8,7 @@
 
 #import "iLedgerAppDelegate.h"
 #import "PlainTextViewController.h"
+#import "TransactionsTableViewController.h"
 #import "Ledger.h"
 
 
@@ -22,12 +23,16 @@
 {
     NSURL *file = [[NSBundle mainBundle] URLForResource:@"my.ledger" withExtension:nil];
     Ledger *ledger = [[Ledger alloc] initWithLines:[NSString stringWithContentsOfURL:file usedEncoding:nil error:nil]];
+    NSAssert([ledger parse], @"initial file should be parsed correctly");
     
     PlainTextViewController *plainTextVC = [[[PlainTextViewController alloc] init] autorelease];
     plainTextVC.ledger = ledger;
+    
+    TransactionsTableViewController *transactionsTVC = [[[TransactionsTableViewController alloc] init] autorelease];
+    transactionsTVC.ledger = ledger;
 
     UITabBarController *tbc = [[[UITabBarController alloc] init] autorelease];
-    tbc.viewControllers = [NSArray arrayWithObject:plainTextVC];
+    tbc.viewControllers = [NSArray arrayWithObjects:plainTextVC, transactionsTVC, nil];
     
     self.controller = tbc;
     [window addSubview:self.controller.view];

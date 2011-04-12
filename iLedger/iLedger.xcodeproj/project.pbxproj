@@ -19,6 +19,7 @@
 		9A2FB3081350CDDD00E02DE0 /* Ledger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2FB3071350CDDD00E02DE0 /* Ledger.m */; };
 		9ACA29A81351BDF3000CD79E /* my.ledger in Resources */ = {isa = PBXBuildFile; fileRef = 9ACA29A61351BDF3000CD79E /* my.ledger */; };
 		9ACA29A91351BDF3000CD79E /* studcouncil.ledger in Resources */ = {isa = PBXBuildFile; fileRef = 9ACA29A71351BDF3000CD79E /* studcouncil.ledger */; };
+		9AF52B7F1354113700E808CB /* TransactionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF52B7E1354113700E808CB /* TransactionsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		9A2FB3071350CDDD00E02DE0 /* Ledger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ledger.m; sourceTree = "<group>"; };
 		9ACA29A61351BDF3000CD79E /* my.ledger */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = my.ledger; sourceTree = "<group>"; };
 		9ACA29A71351BDF3000CD79E /* studcouncil.ledger */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = studcouncil.ledger; sourceTree = "<group>"; };
+		9AF52B7D1354113700E808CB /* TransactionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionsTableViewController.h; sourceTree = "<group>"; };
+		9AF52B7E1354113700E808CB /* TransactionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 			children = (
 				9A2FB28E1350C04900E02DE0 /* PlainTextViewController.h */,
 				9A2FB28F1350C04900E02DE0 /* PlainTextViewController.m */,
+				9AF52B7D1354113700E808CB /* TransactionsTableViewController.h */,
+				9AF52B7E1354113700E808CB /* TransactionsTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				1D3623260D0F684500981E51 /* iLedgerAppDelegate.m in Sources */,
 				9A2FB2911350C04900E02DE0 /* PlainTextViewController.m in Sources */,
 				9A2FB3081350CDDD00E02DE0 /* Ledger.m in Sources */,
+				9AF52B7F1354113700E808CB /* TransactionsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

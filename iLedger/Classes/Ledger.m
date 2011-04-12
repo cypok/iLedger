@@ -32,7 +32,6 @@
         [lines release];
         lines = [newLines copy];
     }
-    [[NSArray alloc] init];
 }
 
 - (AccountsManager *)accountsManager
@@ -50,6 +49,24 @@
 - (NSArray *)transactions
 {
     return self.transactionsManager.transactions;
+}
+
+- (NSDictionary *)transactionsGroupedByDate
+{
+    NSMutableDictionary *groups = [NSMutableDictionary dictionary];
+    
+    for (Transaction *transaction in self.transactions) {
+        NSDate *date = transaction.date;
+        NSMutableArray *group = [groups objectForKey:date];
+        if (!group) {
+            group = [NSMutableArray arrayWithObject:transaction];
+        } else {
+            [group addObject:transaction];
+        }
+        [groups setObject:group forKey:date];
+    }
+    
+    return groups;
 }
 
 - (id)initWithLines:(NSString *)ledgerLines

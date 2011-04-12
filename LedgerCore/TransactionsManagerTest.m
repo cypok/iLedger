@@ -94,7 +94,6 @@
     STAssertEquals(date.day, 9, @"");
 }
 
-
 - (void)testTransactionCreationWithDateWithSetYear
 {
     [transactionsManager setYear:@"2000"];
@@ -106,6 +105,25 @@
     STAssertEquals(date.year, 2000, @"");
     STAssertEquals(date.month, 4, @"");
     STAssertEquals(date.day, 9, @"");
+}
+
+- (void)testTransactionsDateEquality
+{
+    [transactionsManager addTransactionOfDate:@"2000-4-09" withDescription:@"some fruits"];
+    [NSThread sleepForTimeInterval:1];
+    [transactionsManager addTransactionOfDate:@"2000-4-09" withDescription:@"some other fruits"];
+    
+    [transactionsManager setYear:@"2000"];
+    [transactionsManager addTransactionOfDate:@"4-09" withDescription:@"some vegetables"];
+    [NSThread sleepForTimeInterval:1];
+    [transactionsManager addTransactionOfDate:@"4-09" withDescription:@"some other vegetables"];
+    
+    STAssertEqualObjects([[transactionsManager.transactions objectAtIndex:0] date],
+                         [[transactionsManager.transactions objectAtIndex:1] date], @"");
+    STAssertEqualObjects([[transactionsManager.transactions objectAtIndex:1] date],
+                         [[transactionsManager.transactions objectAtIndex:2] date], @"");
+    STAssertEqualObjects([[transactionsManager.transactions objectAtIndex:2] date],
+                         [[transactionsManager.transactions objectAtIndex:3] date], @"");
 }
 
 @end

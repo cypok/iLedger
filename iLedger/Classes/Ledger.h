@@ -22,6 +22,7 @@
 
 @property (copy,readonly) NSString *parserError;
 @property (readonly) NSArray *transactions;
+@property (readonly) NSDictionary *transactionsGroupedByDate;
 
 - (id)initWithLines:(NSString *)ledgerLines;
 
