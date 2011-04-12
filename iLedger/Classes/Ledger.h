@@ -10,6 +10,14 @@
 #import "AccountsManager.h"
 #import "TransactionsManager.h"
 
+
+@interface NSDate(StringFromDateExtension)
+
+@property (readonly) NSString *string;
+
+@end
+
+
 @interface Ledger : NSObject
 {
     NSString *lines;

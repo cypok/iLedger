@@ -30,9 +30,11 @@
     
     TransactionsTableViewController *transactionsTVC = [[[TransactionsTableViewController alloc] init] autorelease];
     transactionsTVC.ledger = ledger;
+    UINavigationController *transactionsNC = [[[UINavigationController alloc] init] autorelease];
+    [transactionsNC pushViewController:transactionsTVC animated:NO];
 
     UITabBarController *tbc = [[[UITabBarController alloc] init] autorelease];
-    tbc.viewControllers = [NSArray arrayWithObjects:plainTextVC, transactionsTVC, nil];
+    tbc.viewControllers = [NSArray arrayWithObjects:plainTextVC, transactionsNC, nil];
     
     self.controller = tbc;
     [window addSubview:self.controller.view];

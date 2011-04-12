@@ -7,6 +7,7 @@
 //
 
 #import "TransactionsTableViewController.h"
+#import "TransactionViewController.h"
 
 
 @interface TransactionsTableViewController()
@@ -84,7 +85,6 @@
     [super dealloc];
 }
 
-
 #pragma mark -
 #pragma mark View lifecycle
 
@@ -104,6 +104,7 @@
 {
     [super viewWillAppear:animated];
     
+    // TODO: move it from here because it scrolls every time
     int section = self.dates.count - 1;
     int row = [[self transactionsForSection:section] count] - 1;
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
@@ -140,13 +141,9 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-    dateFormatter.dateFormat = @"yyyy-MM-dd";
-    
-    return [dateFormatter stringFromDate:[self dateForSection:section]];
+    return [[self dateForSection:section] string];
 }
 
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"TransactionsTableViewCell";
@@ -155,6 +152,8 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     Transaction *transaction = [self transactionForIndexPath:indexPath];
     cell.textLabel.text = transaction.description;
@@ -217,14 +216,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+    TransactionViewController *transactionVC = [[[TransactionViewController alloc] init] autorelease];
+    transactionVC.transaction = [self transactionForIndexPath:indexPath];
+    [self.navigationController pushViewController:transactionVC animated:YES];
 }
 
 @end

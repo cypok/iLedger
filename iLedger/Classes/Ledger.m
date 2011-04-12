@@ -9,6 +9,21 @@
 #import "Ledger.h"
 #import "Parser.h"
 
+
+@implementation NSDate(StringFromDateExtension)
+
+- (NSString *)string
+{
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    
+    return [dateFormatter stringFromDate:self];
+}
+
+@end
+
+
+
 @interface Ledger()
 
 @property (readonly) AccountsManager *accountsManager;
