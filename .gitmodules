@@ -1,0 +1,3 @@
+[submodule "DDMathParser"]
+	path = DDMathParser
+	url = git@github.com:cypok/DDMathParser.git

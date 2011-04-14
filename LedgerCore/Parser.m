@@ -7,6 +7,7 @@
 //
 
 #import "Parser.h"
+#import "DDMathParser.h"
 
 
 @interface NSString (MyParserStringExtension)
@@ -55,6 +56,14 @@
     [super dealloc];
 }
 
+- (void)finishTransaction:(BOOL *)inTransaction
+{
+    if (*inTransaction) {
+        *inTransaction = NO;
+        [delegate finishTransaction];
+    }
+}
+
 - (void)parseLines:(NSString *)lines
 {
     __block BOOL inTransaction = NO;
@@ -65,6 +74,8 @@
 
             if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:ch]) {
                 // transaction header
+                [self finishTransaction:&inTransaction];
+                
                 line = [[line stringWithoutComment] stringByTrimmingSpaces];
 
                 NSUInteger location = [line rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]].location;
@@ -95,16 +106,18 @@
             } else if (ch == 'Y') {
                 // year
                 [delegate setYear:[[[line stringWithoutComment] stringByTrimmingSpaces] substringFromIndex:1]];
-                inTransaction = NO;
+                [self finishTransaction:&inTransaction];
             } else if (ch == ';') {
                 // comment
-                inTransaction = NO;
+                [self finishTransaction:&inTransaction];
             }
         } else {
             // empty line
-            inTransaction = NO;
+            [self finishTransaction:&inTransaction];
         }
     }];
+
+    [self finishTransaction:&inTransaction];
 }
 
 @end

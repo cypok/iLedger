@@ -298,7 +298,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iLedger_Prefix.pch;
 				INFOPLIST_FILE = "iLedger-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = iLedger;
+				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/../LedgerCore/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include/**";
 			};
 			name = Debug;
 		};

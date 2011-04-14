@@ -7,7 +7,7 @@
 //
 
 #import "TransactionsManager.h"
-
+#import "DDMathParser.h"
 
 @implementation NSDate (MyNSDateWithComponentsExtension)
 
@@ -76,15 +76,31 @@
 @end
 
 
+@interface Posting()
+
+@property (retain) NSDecimalNumber *amountValue;
+
+@end
+
+
 @implementation Posting
 
-@synthesize account, amount;
+@synthesize account, amount, amountValue;
 
 - (id)initWithAccount:(Account *)anAccount amount:(NSString *)anAmount
 {
     if (self = [super init]) {
         account = [anAccount retain];
         amount = [anAmount copy];
+        
+        if (self.amount) {
+            self.amountValue = [NSDecimalNumber decimalNumberWithDecimal:[[self.amount numberByEvaluatingString] decimalValue]];
+            if (!self.amountValue) {
+                [NSException raise:@"PostingException"
+                            format:@"Could not evaluate amount \"%@\"", self.amount];
+                return nil;
+            }
+        }
     }
     return self;
 }
@@ -93,6 +109,7 @@
 {
     [account release];
     [amount release];
+    self.amountValue = nil;
     [super dealloc];
 }
 
@@ -133,7 +150,7 @@
     [super dealloc];
 }
 
-#pragma mark ParserDelegate methods
+#pragma mark Parser Delegate methods
 
 - (void)setYear:(NSString *)year
 {
@@ -183,5 +200,44 @@
     [transactions.lastObject addPostingWithAccount:parsedAccount amount:amount];
 }
 
+- (void)finishTransaction
+{
+    if (transactions.count == 0) {
+        [NSException raise:@"TransactionsManagerException"
+                    format:@"Could not finish transaction before adding any transaction"];
+    }
+    
+    // TODO: move this into Transaction
+    // check consistency of last transaction and set amount for postings without it
+    Transaction *transaction = [transactions lastObject];
+    
+    NSMutableArray *postingsWithoutAmount = [NSMutableArray array];
+    NSDecimalNumber * sum = [NSDecimalNumber zero];
+    for (Posting *posting in transaction.postings) {
+        if (posting.amountValue) {
+            sum = [sum decimalNumberByAdding:posting.amountValue];
+        } else {
+            [postingsWithoutAmount addObject:posting];
+        }
+    }
+    switch (postingsWithoutAmount.count) {
+        case 0:
+            if (![sum isEqualToNumber:[NSDecimalNumber zero]]) {
+                [NSException raise:@"TransactionsManagerException"
+                            format:@"Could not add unbalanced transaction, unbalanced remainder %@", sum];
+            }
+            break;
+        case 1:
+        {
+            NSDecimalNumber *minusOne = [NSDecimalNumber decimalNumberWithMantissa:1 exponent:0 isNegative:YES];
+            ((Posting *)postingsWithoutAmount.lastObject).amountValue = [sum decimalNumberByMultiplyingBy:minusOne];
+            break;
+        }
+        default:
+            [NSException raise:@"TransactionsManagerException"
+                        format:@"Could not add transaction with two postings without amount"];
+            break;
+    }
+}
 
 @end

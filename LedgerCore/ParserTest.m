@@ -42,9 +42,14 @@
     [log addObject:[NSString stringWithFormat:@"transaction <%@> <%@>", date, description]];
 }
 
-- (void) addPostingForAccount:(NSString *)account withAmount:(NSString *)amount
+- (void)addPostingForAccount:(NSString *)account withAmount:(NSString *)amount
 {
     [log addObject:[NSString stringWithFormat:@"posting <%@> <%@>", account, amount]];
+}
+
+- (void)finishTransaction
+{
+    [log addObject:@"finish transaction"];
 }
 
 @end
@@ -107,6 +112,7 @@
      @"transaction <4-03> <milk>",
      @"posting <food> <10>",
      @"posting <assets> <(null)>",
+     @"finish transaction",
      nil];
 }
 
@@ -118,6 +124,7 @@
      @"transaction <4-03> <milk>",
      @"posting <food> <10>",
      @"posting <assets> <(null)>",
+     @"finish transaction",
      nil];
 }
 
@@ -129,6 +136,7 @@
      @"transaction <4-03> <milk>",
      @"posting <food> <10>",
      @"posting <assets> <(null)>",
+     @"finish transaction",
      nil];
 }
 
@@ -140,6 +148,7 @@
      @"transaction <4-03> <milk>",
      @"posting <food and drink> <10>",
      @"posting <assets> <(null)>",
+     @"finish transaction",
      nil];
 }
 
@@ -151,9 +160,11 @@
      @"transaction <4-03> <milk>",
      @"posting <food> <10>",
      @"posting <assets> <(null)>",
+     @"finish transaction",
      @"transaction <4-04> <mobile>",
      @"posting <expenses> <100>",
      @"posting <assets> <(null)>",
+     @"finish transaction",
      nil];
 }
 

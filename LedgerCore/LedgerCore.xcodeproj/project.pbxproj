@@ -8,18 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9A2F6D35134DE816005C75F9 /* TransactionsManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F6D34134DE816005C75F9 /* TransactionsManagerTest.m */; };
-		9A4DE87F134775A400EE2801 /* Parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A4DE87D134775A400EE2801 /* Parser.h */; };
+		9A4DE87F134775A400EE2801 /* Parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A4DE87D134775A400EE2801 /* Parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A4DE880134775A400EE2801 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DE87E134775A400EE2801 /* Parser.m */; };
 		9A4DEABA134875B100EE2801 /* libLedgerCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLedgerCore.a */; };
 		9A4DEABB134875BC00EE2801 /* Xcode324iOS41TestSuiteWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DE924134795D600EE2801 /* Xcode324iOS41TestSuiteWorkaround.m */; };
 		9A4DEABC134875BC00EE2801 /* ParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DE91F1347940600EE2801 /* ParserTest.m */; };
-		9A649099134B22520061A36F /* AccountsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A649097134B22520061A36F /* AccountsManager.h */; };
+		9A649099134B22520061A36F /* AccountsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A649097134B22520061A36F /* AccountsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A64909A134B22520061A36F /* AccountsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A649098134B22520061A36F /* AccountsManager.m */; };
-		9A64909B134B22520061A36F /* AccountsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A649098134B22520061A36F /* AccountsManager.m */; };
-		9A64909E134B230E0061A36F /* TransactionsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A64909C134B230E0061A36F /* TransactionsManager.h */; };
+		9A64909E134B230E0061A36F /* TransactionsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A64909C134B230E0061A36F /* TransactionsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A64909F134B230E0061A36F /* TransactionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64909D134B230E0061A36F /* TransactionsManager.m */; };
-		9A6490A0134B230E0061A36F /* TransactionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64909D134B230E0061A36F /* TransactionsManager.m */; };
 		9A6490D2134CCA640061A36F /* AccountsManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6490D1134CCA640061A36F /* AccountsManagerTest.m */; };
+		9AE80BB7135629C800F2D1AB /* libDDMathParseriOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE80A2713561F2500F2D1AB /* libDDMathParseriOS.a */; };
 		AA747D9F0F9514B9006C5449 /* LedgerCore_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LedgerCore_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -31,6 +30,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = LedgerCore;
+		};
+		9AE80929135617CA00F2D1AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AE808711356095200F2D1AB;
+			remoteInfo = MacOSXStaticLibrary;
+		};
+		9AE8092D135617CA00F2D1AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AE808A1135615D000F2D1AB;
+			remoteInfo = UnitTests;
+		};
+		9AE80931135617CA00F2D1AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5537E35A12AB20D20000CFED;
+			remoteInfo = Demo;
+		};
+		9AE809B813561AE400F2D1AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AE809B513561AE400F2D1AB;
+			remoteInfo = ConsoleDemo;
+		};
+		9AE80A2613561F2500F2D1AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AE80A2213561F2500F2D1AB;
+			remoteInfo = DDMathPathLibraryForiOS;
+		};
+		9AE80AB71356203D00F2D1AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AE80A2113561F2500F2D1AB;
+			remoteInfo = DDMathParserLibForiOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -52,6 +93,7 @@
 		9A64909D134B230E0061A36F /* TransactionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionsManager.m; sourceTree = "<group>"; };
 		9A6490D0134CCA640061A36F /* AccountsManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsManagerTest.h; sourceTree = "<group>"; };
 		9A6490D1134CCA640061A36F /* AccountsManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsManagerTest.m; sourceTree = "<group>"; };
+		9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DDMathParser.xcodeproj; path = ../DDMathParser/DDMathParser.xcodeproj; sourceTree = SOURCE_ROOT; };
 		AA747D9E0F9514B9006C5449 /* LedgerCore_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerCore_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libLedgerCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLedgerCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				9AE80BB7135629C800F2D1AB /* libDDMathParseriOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +132,7 @@
 		0867D691FE84028FC02AAC07 /* LedgerCore */ = {
 			isa = PBXGroup;
 			children = (
+				9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */,
 				9A4DE924134795D600EE2801 /* Xcode324iOS41TestSuiteWorkaround.m */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				9A4DE90B1347934800EE2801 /* Tests */,
@@ -144,6 +188,18 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		9AE80922135617CA00F2D1AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9AE8092A135617CA00F2D1AB /* libDDMathParserMacOSX.a */,
+				9AE80A2713561F2500F2D1AB /* libDDMathParseriOS.a */,
+				9AE8092E135617CA00F2D1AB /* UnitTests.octest */,
+				9AE809B913561AE400F2D1AB /* ConsoleDemo */,
+				9AE80932135617CA00F2D1AB /* Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -191,6 +247,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9AE80AB81356203D00F2D1AB /* PBXTargetDependency */,
 			);
 			name = LedgerCore;
 			productName = LedgerCore;
@@ -215,6 +272,12 @@
 			mainGroup = 0867D691FE84028FC02AAC07 /* LedgerCore */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9AE80922135617CA00F2D1AB /* Products */;
+					ProjectRef = 9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* LedgerCore */,
@@ -222,6 +285,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9AE8092A135617CA00F2D1AB /* libDDMathParserMacOSX.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDDMathParserMacOSX.a;
+			remoteRef = 9AE80929135617CA00F2D1AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9AE8092E135617CA00F2D1AB /* UnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UnitTests.octest;
+			remoteRef = 9AE8092D135617CA00F2D1AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9AE80932135617CA00F2D1AB /* Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Demo.app;
+			remoteRef = 9AE80931135617CA00F2D1AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9AE809B913561AE400F2D1AB /* ConsoleDemo */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = ConsoleDemo;
+			remoteRef = 9AE809B813561AE400F2D1AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9AE80A2713561F2500F2D1AB /* libDDMathParseriOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDDMathParseriOS.a;
+			remoteRef = 9AE80A2613561F2500F2D1AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9A4DEAB2134875AC00EE2801 /* Resources */ = {
@@ -256,8 +357,6 @@
 			files = (
 				9A4DEABB134875BC00EE2801 /* Xcode324iOS41TestSuiteWorkaround.m in Sources */,
 				9A4DEABC134875BC00EE2801 /* ParserTest.m in Sources */,
-				9A64909B134B22520061A36F /* AccountsManager.m in Sources */,
-				9A6490A0134B230E0061A36F /* TransactionsManager.m in Sources */,
 				9A6490D2134CCA640061A36F /* AccountsManagerTest.m in Sources */,
 				9A2F6D35134DE816005C75F9 /* TransactionsManagerTest.m in Sources */,
 			);
@@ -281,6 +380,11 @@
 			target = D2AAC07D0554694100DB518D /* LedgerCore */;
 			targetProxy = 9A4DEAE413487A1300EE2801 /* PBXContainerItemProxy */;
 		};
+		9AE80AB81356203D00F2D1AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DDMathParserLibForiOS;
+			targetProxy = 9AE80AB71356203D00F2D1AB /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -297,8 +401,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LedgerCore_Prefix.pch;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/../DDMathParser/build/${BUILD_STYLE}-${PLATFORM_NAME}/usr/local/include/**";
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = LedgerCore;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -365,6 +471,8 @@
 					SenTestingKit,
 					"-framework",
 					UIKit,
+					"-ObjC",
+					"-all_load",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Tests;

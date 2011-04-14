@@ -14,6 +14,7 @@
 - (void)setYear:(NSString *)year;
 - (void)addTransactionOfDate:(NSString *)date withDescription:(NSString *)description;
 - (void)addPostingForAccount:(NSString *)account withAmount:(NSString *)amount;
+- (void)finishTransaction;
 
 @end
 

@@ -227,8 +227,13 @@
 
     Posting *posting = [self postingForIndexPath:indexPath];
     accountLabel.text = posting.account.fullName;
-    amountLabel.text = posting.amount ? posting.amount : @"...";
     
+    if (posting.amount) {
+        amountLabel.text = [NSString stringWithFormat:@"%@ (%@)", posting.amount, posting.amountValue];
+    } else {
+        amountLabel.text = [NSString stringWithFormat:@"... (%@)", posting.amountValue];
+    }
+
     return cell;
 }
 

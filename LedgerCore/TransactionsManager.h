@@ -23,9 +23,11 @@
 {
     Account *account;
     NSString *amount;
+    NSDecimalNumber *amountValue;
 }
 @property (readonly) Account *account;
 @property (readonly) NSString *amount;
+@property (retain,readonly) NSDecimalNumber *amountValue;
 
 - (id)initWithAccount:(Account *)anAccount amount:(NSString *)anAmount;
 
