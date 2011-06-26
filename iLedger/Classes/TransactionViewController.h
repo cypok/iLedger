@@ -12,8 +12,10 @@
 
 @interface TransactionViewController : UITableViewController
 {
+    Ledger *ledger;
     Transaction *transaction;
 }
+@property (assign) Ledger *ledger;
 @property (assign) Transaction *transaction;
 
 @end

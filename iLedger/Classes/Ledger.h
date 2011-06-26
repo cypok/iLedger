@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AccountsManager.h"
 #import "TransactionsManager.h"
+#import "BalanceCalculator.h"
 
 
 @interface NSDate(StringFromDateExtension)
@@ -25,6 +26,7 @@
     NSString *parserError;
     AccountsManager *accountsManager;
     TransactionsManager *transactionsManager;
+    BalanceCalculator *balanceCalculator;
 }
 @property (copy) NSString *lines;
 
@@ -35,5 +37,7 @@
 - (id)initWithLines:(NSString *)ledgerLines;
 
 - (BOOL)parse;
+
+- (NSDecimalNumber *)balanceForAccount:(Account *)account includingChildAccounts:(BOOL)includingChildAccounts;
 
 @end

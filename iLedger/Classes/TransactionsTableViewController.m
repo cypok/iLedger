@@ -217,6 +217,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TransactionViewController *transactionVC = [[[TransactionViewController alloc] init] autorelease];
+    transactionVC.ledger = self.ledger;
     transactionVC.transaction = [self transactionForIndexPath:indexPath];
     [self.navigationController pushViewController:transactionVC animated:YES];
 }

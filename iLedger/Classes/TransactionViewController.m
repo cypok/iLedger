@@ -7,23 +7,13 @@
 //
 
 #import "TransactionViewController.h"
+#import "AccountViewController.h"
+#import "TextSizeUILabelExtension.h"
 
-@interface UILabel(TextSizeUILabelExtension)
-- (CGSize)sizeOfText;
-- (CGSize)sizeOfTextForWidth:(CGFloat)width;
-@end
 
-@implementation UILabel(TextSizeUILabelExtension)
+@interface TransactionViewController()
 
-- (CGSize)sizeOfText
-{
-    return [self.text sizeWithFont:self.font];
-}
-
-- (CGSize)sizeOfTextForWidth:(CGFloat)width
-{
-    return [self.text sizeWithFont:self.font forWidth:width lineBreakMode:self.lineBreakMode];
-}
+@property (readonly) CGFloat paddingOfCell, widthOfCell;
 
 @end
 
@@ -33,7 +23,7 @@
 #pragma mark -
 #pragma mark Properties
 
-@synthesize transaction;
+@synthesize ledger, transaction;
 
 - (void)setTransaction:(Transaction *)newTransaction
 {
@@ -64,14 +54,6 @@
     [self setup];
 }
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
- */
-
 - (void)dealloc
 {
     self.transaction = nil;
@@ -85,8 +67,8 @@
 {
     [super viewDidLoad];
     
-    CGFloat offset = 20;
-    CGFloat width = 320 - offset*2;
+    CGFloat padding = self.paddingOfCell;
+    CGFloat width = self.widthOfCell;
     
     UILabel *dateLabel = [[[UILabel alloc] init] autorelease];
     dateLabel.text = self.transaction.date.string;
@@ -105,11 +87,11 @@
         label.shadowOffset = CGSizeMake(0, 1);
         
         int height = [label sizeOfTextForWidth:width].height;
-        label.frame = CGRectMake(offset, offset + labelsHeight, width, height);
+        label.frame = CGRectMake(padding, padding + labelsHeight, width, height);
         labelsHeight += height;
     }
     
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, offset + width + offset, offset + labelsHeight)];
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, padding + width + padding, padding + labelsHeight)];
     [header addSubview:dateLabel];
     [header addSubview:descriptionLabel];
     
@@ -141,7 +123,6 @@
     [super viewDidUnload];
 }
 
-
 #pragma mark -
 #pragma mark Table view data source
 
@@ -158,6 +139,17 @@
 #define CELL_FONT_SIZE 20
 #define CELL_VPADDING 5
 #define CELL_HPADDING 8
+
+// Padding of grouped UITableViewCell
+- (CGFloat)paddingOfCell
+{
+    return 10;
+}
+
+- (CGFloat)widthOfCell
+{
+    return self.view.bounds.size.width - 2 * self.paddingOfCell;
+}
 
 - (CGFloat)heightOfLabelLineInCell
 {
@@ -176,16 +168,16 @@
     UILabel *accountLabel;
     UILabel *amountLabel;
     
-    CGFloat lineHeight = [self heightOfLabelLineInCell];
+    CGFloat lineHeight = self.heightOfLabelLineInCell;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-
-        NSLog(@"contentView size: %fx%f", cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         UIView *container = [[[UIView alloc] init] autorelease];
-        
+
         accountLabel = [[[UILabel alloc] init] autorelease];
         accountLabel.tag = accountLabelTag;
         accountLabel.font = [UIFont systemFontOfSize:CELL_FONT_SIZE];
@@ -213,7 +205,7 @@
         amountLabel  = (UILabel *)[cell viewWithTag:amountLabelTag];
     }
     
-    CGFloat width = self.view.bounds.size.width - 2 * (CELL_HPADDING + 10/*padding of grouped UITableViewCell*/);
+    CGFloat width = self.widthOfCell - 2 * CELL_HPADDING - 20/*disclosure indicator*/;
     CGRect frame;
     
     frame = accountLabel.frame;
@@ -239,7 +231,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 2 * (CELL_VPADDING + [self heightOfLabelLineInCell]);
+    return 2 * (CELL_VPADDING + self.heightOfLabelLineInCell);
 }
 
 /*
@@ -287,8 +279,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // do nothing
-}
+    Posting *posting = [self postingForIndexPath:indexPath];
 
+    AccountViewController *accountVC = [[[AccountViewController alloc] init] autorelease];
+    accountVC.ledger = self.ledger;
+    accountVC.account = posting.account;
+    [self.navigationController pushViewController:accountVC animated:YES];
+}
 
 @end

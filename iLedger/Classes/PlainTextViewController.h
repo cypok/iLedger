@@ -13,7 +13,6 @@
 @interface PlainTextViewController : UIViewController
 {
     UITextView *textView;
-    Ledger *ledger;
 }
 @property (retain) IBOutlet UITextView *textView;
 

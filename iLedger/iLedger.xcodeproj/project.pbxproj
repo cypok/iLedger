@@ -17,6 +17,8 @@
 		9A2FB2911350C04900E02DE0 /* PlainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2FB28F1350C04900E02DE0 /* PlainTextViewController.m */; };
 		9A2FB2921350C04900E02DE0 /* PlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2FB2901350C04900E02DE0 /* PlainTextViewController.xib */; };
 		9A2FB3081350CDDD00E02DE0 /* Ledger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2FB3071350CDDD00E02DE0 /* Ledger.m */; };
+		9AC738D3135ACB5B00747725 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC738D1135ACB5B00747725 /* AccountViewController.m */; };
+		9AC738F1135AEA7500747725 /* TextSizeUILabelExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC738F0135AEA7500747725 /* TextSizeUILabelExtension.m */; };
 		9ACA29A81351BDF3000CD79E /* my.ledger in Resources */ = {isa = PBXBuildFile; fileRef = 9ACA29A61351BDF3000CD79E /* my.ledger */; };
 		9ACA29A91351BDF3000CD79E /* studcouncil.ledger in Resources */ = {isa = PBXBuildFile; fileRef = 9ACA29A71351BDF3000CD79E /* studcouncil.ledger */; };
 		9AF52B7F1354113700E808CB /* TransactionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF52B7E1354113700E808CB /* TransactionsTableViewController.m */; };
@@ -64,6 +66,10 @@
 		9A2FB2901350C04900E02DE0 /* PlainTextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlainTextViewController.xib; sourceTree = "<group>"; };
 		9A2FB3061350CDDD00E02DE0 /* Ledger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ledger.h; sourceTree = "<group>"; };
 		9A2FB3071350CDDD00E02DE0 /* Ledger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ledger.m; sourceTree = "<group>"; };
+		9AC738D0135ACB5B00747725 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		9AC738D1135ACB5B00747725 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		9AC738EF135AEA7500747725 /* TextSizeUILabelExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSizeUILabelExtension.h; sourceTree = "<group>"; };
+		9AC738F0135AEA7500747725 /* TextSizeUILabelExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSizeUILabelExtension.m; sourceTree = "<group>"; };
 		9ACA29A61351BDF3000CD79E /* my.ledger */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = my.ledger; sourceTree = "<group>"; };
 		9ACA29A71351BDF3000CD79E /* studcouncil.ledger */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = studcouncil.ledger; sourceTree = "<group>"; };
 		9AF52B7D1354113700E808CB /* TransactionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionsTableViewController.h; sourceTree = "<group>"; };
@@ -168,6 +174,10 @@
 				9AF52B7E1354113700E808CB /* TransactionsTableViewController.m */,
 				9AF52D1013545D1700E808CB /* TransactionViewController.h */,
 				9AF52D1113545D1700E808CB /* TransactionViewController.m */,
+				9AC738D0135ACB5B00747725 /* AccountViewController.h */,
+				9AC738D1135ACB5B00747725 /* AccountViewController.m */,
+				9AC738EF135AEA7500747725 /* TextSizeUILabelExtension.h */,
+				9AC738F0135AEA7500747725 /* TextSizeUILabelExtension.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -274,6 +284,8 @@
 				9A2FB3081350CDDD00E02DE0 /* Ledger.m in Sources */,
 				9AF52B7F1354113700E808CB /* TransactionsTableViewController.m in Sources */,
 				9AF52D1313545D1700E808CB /* TransactionViewController.m in Sources */,
+				9AC738D3135ACB5B00747725 /* AccountViewController.m in Sources */,
+				9AC738F1135AEA7500747725 /* TextSizeUILabelExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
