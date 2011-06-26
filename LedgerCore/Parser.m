@@ -42,14 +42,6 @@
 
 @synthesize delegate;
 
-- (id)init
-{
-    if (self = [super init]) {
-        self.delegate = nil;
-    }
-    return self;
-}
-
 - (void)dealloc
 {
     self.delegate = nil;

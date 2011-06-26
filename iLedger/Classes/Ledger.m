@@ -26,8 +26,9 @@
 
 @interface Ledger()
 
-@property (readonly) AccountsManager *accountsManager;
-@property (readonly) TransactionsManager *transactionsManager;
+@property (retain, readwrite) AccountsManager *accountsManager;
+@property (retain, readwrite) TransactionsManager *transactionsManager;
+@property (retain, readwrite) BalanceCalculator *balanceCalculator;
 
 @property (copy,readwrite) NSString *parserError;
 
@@ -38,7 +39,7 @@
 
 @implementation Ledger
 
-@synthesize lines, parserError;
+@synthesize lines, parserError, accountsManager, transactionsManager, balanceCalculator;
 
 - (void)setLines:(NSString *)newLines
 {
@@ -84,6 +85,17 @@
     return groups;
 }
 
+- (NSDecimalNumber *)balanceForAccount:(Account *)account includingChildAccounts:(BOOL)includingChildAccounts
+{
+    NSAssert(parsed, @"lines should be parsed before getting balance");
+    
+    if (!self.balanceCalculator) {
+        self.balanceCalculator = [[[BalanceCalculator alloc] initWithTransactions:self.transactions] autorelease];
+    }
+    
+    return [self.balanceCalculator balanceForAccount:account includingChildAccounts:includingChildAccounts];
+}
+
 - (id)initWithLines:(NSString *)ledgerLines
 {
     if (self = [super init]) {
@@ -95,17 +107,19 @@
 
 - (void)dealloc
 {
-    [lines release];
-    [accountsManager release];
-    [transactionsManager release];
+    self.lines = nil;
+    self.accountsManager = nil;
+    self.transactionsManager = nil;
+    self.balanceCalculator = nil;
     [super dealloc];
 }
 
 - (void)resetParsing
 {
     parsed = NO;
-    [accountsManager release];
-    [transactionsManager release];
+    self.accountsManager = nil;
+    self.transactionsManager = nil;
+    
 }
 
 - (BOOL)parse
@@ -135,6 +149,5 @@
         }
     }
 }
-
 
 @end

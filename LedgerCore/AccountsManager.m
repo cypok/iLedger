@@ -13,7 +13,7 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
 
 
 @interface Account()
-@property (readonly) NSMutableDictionary *children;
+@property (readonly) NSMutableDictionary *childrenDictionary;
 @property (readonly) NSString *name;
 
 - (id)initWithName:(NSString *)aName parentAccount:(Account *)aParent;
@@ -23,7 +23,7 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
 
 @implementation Account
 
-@synthesize parent, children, name;
+@synthesize parent, childrenDictionary, name;
 
 - (id)initWithName:(NSString *)aName parentAccount:(Account *)aParent
 {
@@ -34,16 +34,15 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
                         format:@"Could not initialize account with name \"%@\"", aName];
         }
         name = [aName copy];
-        parent = [aParent retain];
-        children = [[NSMutableDictionary alloc] init];
+        parent = aParent; // avoid cyclic retain with parent
+        childrenDictionary = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [parent release];
-    [children release];
+    [childrenDictionary release];
     [name release];
     [super dealloc];
 }
@@ -58,6 +57,23 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
         [fullName insertString:acc.name atIndex:0];
     }
     return fullName;
+}
+
+- (NSArray *)children
+{
+    return [childrenDictionary allValues];
+}
+
+- (BOOL)isEqualToOrChildOf:(Account *)anotherAccount
+{
+    Account *account = self;
+    while (account) {
+        if ([account isEqual:anotherAccount]) {
+            return YES;
+        }
+        account = account.parent;
+    }
+    return NO;
 }
 
 @end
@@ -82,17 +98,17 @@ NSString * const ACCOUNTS_SEPARATOR = @":";
 - (Account *)accountByName:(NSString *)fullAccountName
 {
     Account *parent = nil;
-    NSMutableDictionary *children = rootAccounts;
+    NSMutableDictionary *childrenDictionary = rootAccounts;
 
     for (NSString *childAccountName in [fullAccountName componentsSeparatedByString:ACCOUNTS_SEPARATOR]) {
-        Account *child = [children objectForKey:childAccountName];
+        Account *child = [childrenDictionary objectForKey:childAccountName];
         if (!child) {
             child = [[[Account alloc] initWithName:childAccountName parentAccount:parent] autorelease];
-            [children setObject:child forKey:childAccountName];
+            [childrenDictionary setObject:child forKey:childAccountName];
         }
 
         parent = child;
-        children = parent.children;
+        childrenDictionary = parent.childrenDictionary;
     }
 
     return parent;

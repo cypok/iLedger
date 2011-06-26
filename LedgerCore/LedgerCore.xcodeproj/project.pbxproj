@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A2F6D35134DE816005C75F9 /* TransactionsManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F6D34134DE816005C75F9 /* TransactionsManagerTest.m */; };
+		9A368DF71359FD1F00A10688 /* BalanceCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A368DF51359FD1F00A10688 /* BalanceCalculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A368DF81359FD1F00A10688 /* BalanceCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A368DF61359FD1F00A10688 /* BalanceCalculator.m */; };
 		9A4DE87F134775A400EE2801 /* Parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A4DE87D134775A400EE2801 /* Parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A4DE880134775A400EE2801 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DE87E134775A400EE2801 /* Parser.m */; };
 		9A4DEABA134875B100EE2801 /* libLedgerCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLedgerCore.a */; };
@@ -18,6 +20,7 @@
 		9A64909E134B230E0061A36F /* TransactionsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A64909C134B230E0061A36F /* TransactionsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A64909F134B230E0061A36F /* TransactionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64909D134B230E0061A36F /* TransactionsManager.m */; };
 		9A6490D2134CCA640061A36F /* AccountsManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6490D1134CCA640061A36F /* AccountsManagerTest.m */; };
+		9A7B7E0813B65814000A3D10 /* BalanceCalculatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7B7E0713B65814000A3D10 /* BalanceCalculatorTest.m */; };
 		9AE80BB7135629C800F2D1AB /* libDDMathParseriOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE80A2713561F2500F2D1AB /* libDDMathParseriOS.a */; };
 		AA747D9F0F9514B9006C5449 /* LedgerCore_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LedgerCore_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -78,6 +81,8 @@
 /* Begin PBXFileReference section */
 		9A2F6D33134DE816005C75F9 /* TransactionsManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionsManagerTest.h; sourceTree = "<group>"; };
 		9A2F6D34134DE816005C75F9 /* TransactionsManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionsManagerTest.m; sourceTree = "<group>"; };
+		9A368DF51359FD1F00A10688 /* BalanceCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceCalculator.h; sourceTree = "<group>"; };
+		9A368DF61359FD1F00A10688 /* BalanceCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceCalculator.m; sourceTree = "<group>"; };
 		9A4DE87D134775A400EE2801 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		9A4DE87E134775A400EE2801 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 		9A4DE8C413478FD800EE2801 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
@@ -93,6 +98,8 @@
 		9A64909D134B230E0061A36F /* TransactionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionsManager.m; sourceTree = "<group>"; };
 		9A6490D0134CCA640061A36F /* AccountsManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsManagerTest.h; sourceTree = "<group>"; };
 		9A6490D1134CCA640061A36F /* AccountsManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsManagerTest.m; sourceTree = "<group>"; };
+		9A7B7E0613B65814000A3D10 /* BalanceCalculatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceCalculatorTest.h; sourceTree = "<group>"; };
+		9A7B7E0713B65814000A3D10 /* BalanceCalculatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceCalculatorTest.m; sourceTree = "<group>"; };
 		9AE80921135617CA00F2D1AB /* DDMathParser.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DDMathParser.xcodeproj; path = ../DDMathParser/DDMathParser.xcodeproj; sourceTree = SOURCE_ROOT; };
 		AA747D9E0F9514B9006C5449 /* LedgerCore_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerCore_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +170,8 @@
 				9A649098134B22520061A36F /* AccountsManager.m */,
 				9A64909C134B230E0061A36F /* TransactionsManager.h */,
 				9A64909D134B230E0061A36F /* TransactionsManager.m */,
+				9A368DF51359FD1F00A10688 /* BalanceCalculator.h */,
+				9A368DF61359FD1F00A10688 /* BalanceCalculator.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -184,6 +193,8 @@
 				9A6490D1134CCA640061A36F /* AccountsManagerTest.m */,
 				9A2F6D33134DE816005C75F9 /* TransactionsManagerTest.h */,
 				9A2F6D34134DE816005C75F9 /* TransactionsManagerTest.m */,
+				9A7B7E0613B65814000A3D10 /* BalanceCalculatorTest.h */,
+				9A7B7E0713B65814000A3D10 /* BalanceCalculatorTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -211,6 +222,7 @@
 				9A4DE87F134775A400EE2801 /* Parser.h in Headers */,
 				9A649099134B22520061A36F /* AccountsManager.h in Headers */,
 				9A64909E134B230E0061A36F /* TransactionsManager.h in Headers */,
+				9A368DF71359FD1F00A10688 /* BalanceCalculator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +371,7 @@
 				9A4DEABC134875BC00EE2801 /* ParserTest.m in Sources */,
 				9A6490D2134CCA640061A36F /* AccountsManagerTest.m in Sources */,
 				9A2F6D35134DE816005C75F9 /* TransactionsManagerTest.m in Sources */,
+				9A7B7E0813B65814000A3D10 /* BalanceCalculatorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +382,7 @@
 				9A4DE880134775A400EE2801 /* Parser.m in Sources */,
 				9A64909A134B22520061A36F /* AccountsManager.m in Sources */,
 				9A64909F134B230E0061A36F /* TransactionsManager.m in Sources */,
+				9A368DF81359FD1F00A10688 /* BalanceCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

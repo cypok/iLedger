@@ -15,11 +15,14 @@ extern NSString * const ACCOUNTS_SEPARATOR;
 @interface Account : NSObject
 {
     Account *parent;
-    NSMutableDictionary *children;
+    NSMutableDictionary *childrenDictionary; // name => account
     NSString *name;
 }
 @property (readonly) Account *parent;
+@property (readonly) NSArray *children;
 @property (readonly) NSString *fullName;
+
+- (BOOL)isEqualToOrChildOf:(Account *)anotherAccount;
 
 @end
 

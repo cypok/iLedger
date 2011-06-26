@@ -73,4 +73,28 @@
     STAssertThrows([accountsManager accountByName:@"expenses: :food"], @"");
 }
 
+- (void)testAccountIsEqualTo
+{
+    Account *account  = [accountsManager accountByName:@"expenses"];
+    Account *account2 = [accountsManager accountByName:@"expenses"];
+    STAssertTrue([account isEqualToOrChildOf:account2], @"");
+    STAssertTrue([account2 isEqualToOrChildOf:account], @"");
+}
+
+- (void)testAccountIsChildOf
+{
+    Account *account      = [accountsManager accountByName:@"expenses"];
+    Account *childAccount = [accountsManager accountByName:@"expenses:food:fruits"];
+    STAssertTrue( [childAccount isEqualToOrChildOf:account], @"");
+    STAssertFalse([account isEqualToOrChildOf:childAccount], @"");
+}
+
+- (void)testAccountIsNotEqualToOrChildOf
+{
+    Account *account  = [accountsManager accountByName:@"expenses:health"];
+    Account *account2 = [accountsManager accountByName:@"expenses:food"];
+    STAssertFalse([account isEqualToOrChildOf:account2], @"");
+    STAssertFalse([account2 isEqualToOrChildOf:account], @"");
+}
+
 @end
